@@ -3,7 +3,7 @@
 namespace sqrd\Envato;
 
 class API {
-  __construct() {
+  function __construct() {
     echo "Hey";
   }
 }
