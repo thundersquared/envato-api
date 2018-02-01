@@ -29,8 +29,9 @@ class API {
     $uri = 'https://api.envato.com' . $path;
     $options = [
       'headers' => [
-        'User-Agent'    => $this->userAgent || 'envato-api/0.1',
-        'Authorization' => 'Bearer ' . $this->token
+        'Accept'        => 'application/json',
+        'Authorization' => 'Bearer ' . $this->token,
+        'User-Agent'    => $this->userAgent || 'envato-api/0.1'
       ]
     ];
 
@@ -39,8 +40,8 @@ class API {
     }
 
     $client = new Client();
-    $res = $client->request('GET', $uri, $options);
-    return $res->getBody();
+    $request = $client->request('GET', $uri, $options);
+    return $request->getBody();
   }
 
   public function getCategories($site)
