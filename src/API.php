@@ -11,11 +11,11 @@ class API {
   function __construct($token = null, $userAgent = null)
   {
     if (!is_null($token)) {
-      self::$token = $token;
+      $this->token = $token;
     }
 
     if (!is_null($userAgent)) {
-      self::$userAgent = $userAgent;
+      $this->userAgent = $userAgent;
     }
   }
 
@@ -29,8 +29,8 @@ class API {
     $uri = 'https://api.envato.com' . $path;
     $options = [
       'headers' => [
-        'User-Agent'    => self::$userAgent || 'envato-api/0.1',
-        'Authorization' => 'Bearer ' . self::$token
+        'User-Agent'    => $this->userAgent || 'envato-api/0.1',
+        'Authorization' => 'Bearer ' . $this->token
       ]
     ];
 
