@@ -31,7 +31,7 @@ class API {
       'headers' => [
         'Accept'        => 'application/json',
         'Authorization' => 'Bearer ' . $this->token,
-        'User-Agent'    => $this->userAgent || 'envato-api/0.1'
+        'User-Agent'    => $this->userAgent || 'envato-api/0.0.1'
       ]
     ];
 
@@ -45,7 +45,7 @@ class API {
   }
 
   /**
-   * Catalog endpoints
+   * Envato Market Catalog
    **/
 
   public function getCollection($site, $args)
@@ -99,7 +99,7 @@ class API {
   }
 
   /**
-   * User details
+   * User Details
    **/
 
   public function getUserCollections($args)
@@ -133,7 +133,7 @@ class API {
   }
 
   /**
-   * Private user details
+   * Private User Details
    **/
 
   public function getSales($args)
@@ -175,6 +175,10 @@ class API {
   {
     return $this->makeRequest('/v1/market/private/user/earnings-and-sales-by-month.json');
   }
+
+  /**
+   * Envato Market Stats
+   **/
 
   public function getTotalMarketUsers($args)
   {

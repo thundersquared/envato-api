@@ -9,7 +9,7 @@
 Of course there are a lot of similar libraries, but this one should be the simplest and the most complete one of them all—at least that what we hope.
 
 ## Tech stack
-The API is written in PHP, relies on [Guzzle](https://github.com/guzzle/guzzle) to consume the Envato Marketplace API and that's pretty much it.
+The API is written in PHP, relies on [Guzzle](https://github.com/guzzle/guzzle) to consume the Envato Marketplace API and that's pretty much it. Heavily inspired by [Node version by Bailey Herbert](https://github.com/baileyherbert/node-envato-api).
 
 ## How to use
 1. Require the package
@@ -57,8 +57,9 @@ The API is written in PHP, relies on [Guzzle](https://github.com/guzzle/guzzle) 
    $client->getSalesByMonth($args);
    $client->getTotalMarketUsers($args);
    $client->getTotalMarketItems($args);
-   $client->getTotalFilesBySite($site, $args)
+   $client->getTotalFilesBySite($site, $args);
    ```
+   Find each method signature and details at [https://build.envato.com/api/](https://build.envato.com/api/). All parameters are the same and should be passed as a key-value array as the latest argument of the method.
 
 ## License
 The code in this repo and used modules are open-sourced software licensed under the [MIT license](LICENSE.md).
