@@ -31,7 +31,7 @@ class API {
       'headers' => [
         'Accept'        => 'application/json',
         'Authorization' => 'Bearer ' . $this->token,
-        'User-Agent'    => $this->userAgent || 'envato-api/0.0.2'
+        'User-Agent'    => $this->userAgent || 'envato-api/0.0.3'
       ]
     ];
 
