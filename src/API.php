@@ -41,7 +41,10 @@ class API {
 
     $client = new Client();
     $request = $client->request('GET', $uri, $options);
-    return $request->getBody();
+    $response = $request->getBody();
+    $result = json_decode($response, true);
+
+    return $result;
   }
 
   /**
