@@ -51,22 +51,22 @@ class API {
    * Envato Market Catalog
    **/
 
-  public function getCollection($site, $args = null)
+  public function getCollection($args = null)
   {
     return $this->makeRequest('/v3/market/catalog/collection', $args);
   }
 
-  public function getItem($site, $args = null)
+  public function getItem($args = null)
   {
     return $this->makeRequest('/v3/market/catalog/item', $args);
   }
 
-  public function searchItems($site, $args = null)
+  public function searchItems($args = null)
   {
     return $this->makeRequest('/v1/discovery/search/search/item', $args);
   }
 
-  public function searchComments($site, $args = null)
+  public function searchComments($args = null)
   {
     return $this->makeRequest('/v1/discovery/search/search/comment', $args);
   }

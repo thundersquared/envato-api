@@ -30,36 +30,42 @@ The API is written in PHP, relies on [Guzzle](https://github.com/guzzle/guzzle) 
    $client = new Client('your-personal-token-here', 'optional-user-agent-here');
    ```
 3. Use them calls
-   ```php
-   $client->getCollection($site, $args);
-   $client->getItem($site, $args);
-   $client->searchItems($site, $args);
-   $client->searchComments($site, $args);
-   $client->getPopularItems($site, $args);
-   $client->getCategories($site, $args);
-   $client->getItemPrices($site, $args);
-   $client->getNewItems($site, $category, $args);
-   $client->getFeaturedItems($site, $args);
-   $client->getRandomNewFiles($site, $args);
-   $client->getUserCollections($args);
-   $client->getPrivateCollection($args);
-   $client->getUsersDetails($username, $args);
-   $client->getUsersBadges($username, $args);
-   $client->getUsersItems($username, $args);
-   $client->getUsersNewItems($username, $site, $args);
-   $client->getSales($args);
-   $client->getSaleByCode($args);
-   $client->getPurchases($args);
-   $client->getPurchaseByCode($args);
-   $client->getPrivateUserDetails($args);
-   $client->getUsername($args);
-   $client->getEmail($args);
-   $client->getSalesByMonth($args);
-   $client->getTotalMarketUsers($args);
-   $client->getTotalMarketItems($args);
-   $client->getTotalFilesBySite($site, $args);
-   ```
-   Find each method signature and details at [https://build.envato.com/api/](https://build.envato.com/api/). All parameters are the same and should be passed as a key-value array as the latest argument of the method.
+
+Use | Method
+--- | ------
+**Envato Market Catalog**
+Look up a public collection | `$client->getCollection([ 'id' => 1234 ]);`
+Look up a single item | `$client->getItem([ 'id' => 1234 ]);`
+Search for items | `$client->searchItems([ 'site' => 'codecanyon', 'term' => 'query', ... ]);`
+Search for comments | `$client->searchComments([ 'item_id' => '1234', 'term' => 'query', ... ]);`
+Popular items by site | `$client->getPopularItems('codecanyon'[, array $args = null ]);`
+Categories by site | `$client->getCategories($site[, array $args = null ]);`
+Prices for a particular item | `$client->getItemPrices([ 'item_id' => 1234 ]);`
+New items by site and category | `$client->getNewItems($site = 'graphicriver', $category = 'graphics'[, array $args = null ]);`
+Find featured items | `$client->getFeaturedItems($site = 'graphicriver'[, array $args = null ]);`
+Random new items | `$client->getRandomNewFiles($site = 'graphicriver'[, array $args = null ]);`
+**User Details**
+List all of your collections | `$client->getUserCollections(array $args = null);`
+Look up a user's private collection | `$client->getPrivateCollection([ 'id' => 1234 ]);`
+User account details | `$client->getUsersDetails($username[, array $args = null ]);`
+List a user's badges | `$client->getUsersBadges($username[, array $args = null ]);`
+A user's items by site | `$client->getUsersItems($username[, array $args = null ]);`
+New items by user | `$client->getUsersNewItems($username = 'collis', $site = 'graphicriver'[, array $args = null ]);`
+**Private User Details**
+List your sales | `$client->getSales($args);`
+Look up sale by code | `$client->getSaleByCode([ 'code' => '123-456-789', ... ]);`
+List purchases | `$client->getPurchases([ 'page' => 1, ... ]);`
+Look up purchase by code | `$client->getPurchaseByCode([ 'code' => '123-456-789' ]);`
+User account details | `$client->getPrivateUserDetails(array $args = null);`
+Get a user's username | `$client->getUsername(array $args = null);`
+Get a user's email | `$client->getEmail(array $args = null);`
+Sales by month | `$client->getSalesByMonth(array $args = null);`
+**Envato Market Stats**
+Total Envato Market users | `$client->getTotalMarketUsers(array $args = null);`
+Total Envato Market items | `$client->getTotalMarketItems(array $args = null);`
+Number of files in category | `$client->getTotalFilesBySite($site = 'codecanyon'[, array $args = null ]);`
+
+Find each method signature and details at [https://build.envato.com/api/](https://build.envato.com/api/). All parameters are the same and should be passed as a key-value array as the latest argument of the method.
 
 ## License
 The code in this repo and used modules are open-sourced software licensed under the [MIT license](LICENSE.md).
